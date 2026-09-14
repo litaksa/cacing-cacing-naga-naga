@@ -16,12 +16,12 @@ Opsional: `XAI_API_KEY` untuk narasi chat (kalau tidak ada, kartu skor tetap jal
 
 ## Deploy Vercel
 
-1. Push repo ini ke GitHub.
-2. Import project di Vercel (framework: Vite / Nitro Vercel preset sudah di `vite.config.ts`).
+1. Root repo harus berisi `package.json`, `vite.config.ts`, `src/`, `scripts/`.
+2. Import project di Vercel. Build: `npm run build`.
 3. Environment variables:
-   - `SECTORS_API_KEY` — wajib, dari halaman API Sectors (kredit hackathon, jangan paket Insider berbayar).
-   - `XAI_API_KEY` — opsional.
-4. Jangan commit key.
+   - `SECTORS_API_KEY` — wajib
+   - `XAI_API_KEY` — opsional
+4. Jangan commit `.env`.
 
 ## Pakai
 
