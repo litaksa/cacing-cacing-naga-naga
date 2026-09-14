@@ -49,3 +49,58 @@
     text-wrap: pretty;
   }
 }
+
+@layer utilities {
+  .wiggle {
+    animation: wiggle 2.8s var(--ease-out) infinite;
+    transform-origin: 50% 80%;
+  }
+  .bob {
+    animation: bob 3.4s var(--ease-out) infinite;
+  }
+  .glow-pulse {
+    animation: glow 2.6s ease-in-out infinite;
+  }
+  .card-enter {
+    animation: rise 500ms var(--ease-out) both;
+  }
+  .hero-fade {
+    animation: rise 600ms var(--ease-out) both;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-7px); }
+}
+@keyframes bob {
+  0%,
+  100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-9px) rotate(-2deg); }
+}
+@keyframes glow {
+  0%,
+  100% { box-shadow: 0 0 0 0 rgba(180, 35, 50, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(180, 35, 50, 0); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes crawl {
+  from { stroke-dashoffset: 220; }
+  to { stroke-dashoffset: 0; }
+}
+.worm-path {
+  stroke-dasharray: 220;
+  animation: crawl 1.8s var(--ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
